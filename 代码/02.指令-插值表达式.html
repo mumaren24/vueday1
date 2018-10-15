@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue-2.5.16.js"></script>
+</head>
+
+<body>
+  <!-- 注意：一般，都是通过 id 来指定控制的区域的 -->
+  <div class="app">
+    <p>-------{{msg}}--------</p>
+
+    <hr>
+    <p>** 插值表达式中使用 + 拼接字符串</p>
+    <p>{{msg + 'aaaa'}}</p>
+
+    <hr>
+    <p>** 差值表达式中使用 数字运算符</p>
+    <p>{{ 2 * 3 }}</p>
+
+    <hr>
+    <p>** 插值表达式中使用 三元运算符</p>
+    <p>{{ 8 % 2 === 0 ? '偶数' : '奇数' }}</p>
+
+    <hr>
+    <p>** 三元表达式 从 data 上取值</p>
+    <p>{{ count % 2 === 0 ? '偶数' : '奇数' }}</p>
+  </div>
+
+  <!-- 如果Vue的指令想要生效，必须 放到 被  el 控制的区域内部 -->
+  <p>{{msg}}</p>
+
+  <script>
+    const vm = new Vue({
+      el: '.app',
+      data: {
+        msg: 'hello Vue.js',
+        count: 8
+      }
+    })
+  </script>
+</body>
+
+</html>

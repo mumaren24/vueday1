@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 1. 导入 Vue 的包，当导入这个包以后，在 window 全局，就有了一个 Vue 成员， 注意，这个全局的 Vue成员，是一个构造函数 -->
+  <script src="./lib/vue-2.5.16.js"></script>
+</head>
+
+<body>
+  <!-- 2. 这是创建了一个容器，将来 Vue 就会控制整个 容器中所有的 代码 -->
+  <!-- 这个 被 vm 控制的 区域，就是 MVVM 中的 View 层 -->
+  <!-- 这里，用到的 {{ }} ,在Vue中叫做指令，叫做 插值表达式 -->
+  <div id="app">{{msg}}</div>
+
+  <script>
+    // 3. new 一个 Vue 的实例
+    // 这个 new 出来的 vm，就是 MVVM 中的 VM 层
+    const vm = new Vue({
+      el: '#app', // 通过 el 属性，指定 VM 调度者，要控制页面上哪个区域
+      data: { // 这个 data 对象，就是 我们的 MVVM 中的 Model 层
+        msg: '这是 model 层中的 msg 数据'
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue-2.5.16.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="clickHandler1">按钮1</button>
+    <button @mouseover="clickHandler2">按钮2</button>
+    <hr>
+    <!-- 由于 v-on: 这个指令，非常常用，所以Vue提供了 它的简化写法  @ -->
+
+    <!-- v-bind: 是属性绑定，为元素绑定属性的；简写是 : ， v-bind: 绑定的属性值，都需要定义到 data 上-->
+    <!-- v-on:   是事件绑定，为元素绑定事件处理函数的，简写是 @, v-on: 绑定的事件处理函数，都需要定义到 methods 中去 -->
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: { // 这个 methods 中的方法，都可以被 页面上的 绑定为事件处理函数
+        clickHandler1() {
+          console.log('okokok')
+        },
+        clickHandler2() {
+          console.log('处理函数2')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

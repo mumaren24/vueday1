@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-text 指令，会把 元素内部的内容，都替换掉 -->
+    <p v-text="msg">123456</p>
+    <!-- 使用 v-cloak 指令，解决 插值表达式闪烁的问题 -->
+    <p v-cloak>123{{msg}}456</p>
+
+    <!-- 注意： v-text 指令，只能被使用在 元素的 属性节点上； 而 {{}} 只能用在 元素的 内容区域 -->
+    <!-- v-text 和 {{}} 的区别： -->
+    <!-- 1. 插值表达式，只是一个占位符，不会清空元素中其它的内容；但是 v-text 会覆盖掉元素之前的内容 -->
+    <!-- 2. 插值表达式在网速慢的情况下，会出现 闪烁的问题；但是 v-text 不存在闪烁的问题 -->
+  </div>
+
+  <script src="./lib/vue-2.5.16.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '这是消息'
+      }
+    })
+  </script>
+</body>
+
+</html>

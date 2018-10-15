@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue-2.5.16.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <ul>
+      <li>{{arr[0]}}</li>
+      <li>{{arr[1]}}</li>
+      <li>{{arr[2]}}</li>
+      <li>{{arr[3]}}</li>
+    </ul> -->
+
+    <!-- <ul>
+      <li v-for="(item, i) in arr">索引：{{i}} ---- 姓名：{{item}}</li>
+    </ul> -->
+
+
+    <ul>
+      <!-- 注意：今后在使用 v-for 指令循环的时候，推荐大家，必须 指定 一个 :key 属性绑定，绑定的最好是 每一项的id -->
+      <li v-for="(item, i) in objArr" :key="item.id">索引：{{i}} --- Id：{{item.id}} --- 名字：{{item.name}}</li>
+    </ul>
+
+    <!-- <ul>
+      <li v-for="(val, key) in user">{{key}} ---- {{val}}</li>
+    </ul> -->
+
+    <!-- <p v-for="i in 5">{{i}}</p> -->
+
+  </div>
+
+  <script>
+    // 创建 Vue 实例，得到 ViewModel
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        arr: ['毛利兰', '柯南', '小五郎', '灰原哀'],
+        objArr: [
+          { id: 1, name: '嬴政', gender: '男' },
+          { id: 2, name: '李斯', gender: '男' },
+          { id: 3, name: '赵姬', gender: '女' }
+        ],
+        user: {
+          name: '泥巴巴',
+          age: '22',
+          gender: '男',
+          address: '河北'
+        }
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>

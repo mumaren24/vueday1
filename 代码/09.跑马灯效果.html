@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue-2.5.16.js"></script>
+</head>
+
+<body>
+  <!-- 容器 -->
+  <div id="app">
+    <button @click="lang">浪起来</button>
+    <button @click="stop">别浪</button>
+
+    <h1>{{msg}}</h1>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        // 所有页面的数据，都要放到 data 中存储
+        msg: '稳住，我们能赢~~',
+        interId: null
+      },
+      methods: {
+        // 定义一个 浪起来的方法
+        lang() {
+          // 如果 多个方法中，都要共享同一份数据，则需要把数据，挂载到 data 中
+          this.interId = setInterval(() => {
+            const header = this.msg.slice(0, 1)
+            const footer = this.msg.slice(1)
+            const newMsg = footer + header
+            // 当 为 this.msg 重新赋值成功以后， vm 上 的 msg 数据就变化了；
+            // 接下来， vm 调度者 就会监听到 msg 数据的变化；然后 重新 解析执行 el 控制的区域内， 所有指令；
+            this.msg = newMsg
+          }, 500)
+        },
+        // 点击清除定时器
+        stop() {
+          clearInterval(this.interId)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

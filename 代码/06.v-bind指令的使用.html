@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue-2.5.16.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-bind: 的作用，就是为 元素的属性，动态绑定内容 -->
+    <button v-bind:title="titleStr + 12345">按钮</button>
+
+    <hr>
+    <!-- 注意：   由于 v-bind: 这个指令在开发中经常会用到，所以 Vue 提供了简化的写法  :   -->
+    <img :src="imgsrc">
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        titleStr: '这是一个按钮啊啊啊',
+        imgsrc: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3198611610,3108821463&fm=27&gp=0.jpg'
+      }
+    })
+  </script>
+</body>
+
+</html>

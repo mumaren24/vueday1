@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue-2.5.16.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 不推荐程序员操作 DOM 元素 -->
+    <!-- 可以在调用 方法的时候，把 data 上的一些数据，当作参数，传递到这个方法中 -->
+    <button v-on:click="myclick(msg)">点击按钮</button>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '瓦塔西 柯南'
+      },
+      methods: {
+        myclick: function (arg) {
+          console.log('有人点击了按钮！' + arg)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
